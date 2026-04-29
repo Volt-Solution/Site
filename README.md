@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Volt Solution — Site Institucional
 
-## Getting Started
+Site institucional da [Volt Solution](https://voltsolution.com.br), plataforma de IoT para monitoramento de utilidades em hotéis.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, output estático)
+- React 19, TypeScript 5
+- Tailwind CSS v4, Framer Motion
+- Fonte proprietária: Vogie
+
+## Desenvolvimento
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev       # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build     # gera site estático em /out
+npm run start     # serve /out localmente
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Outros comandos
 
-## Learn More
+```bash
+npm run typecheck  # verificação de tipos
+npm run lint       # ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                         # App Router
+    layout.tsx                 # root layout e metadados
+    page.tsx                   # home (compõe as seções)
+    contato/
+    politica-de-privacidade/
+    robots.ts / sitemap.ts
+  components/
+    layout/   Header, Footer
+    sections/ Hero, Services, Cases, Clients, Problems,
+              Solution, Differentials, MeasureCare, CTASection
+    ui/       FadeIn, ContactForm, CookieBanner
+  lib/
+    constants.ts   # todo o conteúdo editável (textos, dados, links)
+    icons.ts       # mapeamento lucide-react
+    utils.ts       # cn()
+public/
+  fonts/     Vogie (woff2)
+  images/    logo, hero, clientes, cases
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Observações
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Site 100% estático — sem servidor, sem API routes.
+- Todo conteúdo editável está em `src/lib/constants.ts`.
+- Fontes carregadas via `@font-face` em `globals.css` (não usa `next/font`).
+- Tailwind v4 — sem `tailwind.config.*`, configuração via PostCSS.
