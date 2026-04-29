@@ -1,42 +1,68 @@
 'use client'
 import Link from 'next/link'
 import FadeIn from '../ui/FadeIn'
+import { CONTACT } from '@/lib/constants'
 
 export default function CTASection() {
   return (
-    <section className="section-padding bg-navy text-center">
-      <div className="container-site max-w-4xl mx-auto flex flex-col items-center">
+    <section className="bg-navy text-center relative overflow-hidden">
+      {/* Grid técnico */}
+      <div className="grid-bg" aria-hidden />
+      {/* Glow neutro */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(60% 50% at 50% 0%, rgba(255,255,255,0.05) 0%, rgba(3,3,66,0) 70%)',
+        }}
+      />
+      <div className="container-site relative z-10 py-28 md:py-40">
         <FadeIn>
-          <h2 className="text-h2 text-white mb-6">
-            Qual é o custo de não saber o que está acontecendo na sua operação?
+          <span className="eyebrow text-bone/55 mb-8 block">Pronto para o próximo passo</span>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-editorial text-white max-w-4xl mx-auto mb-10">
+            O padrão da sua casa,<br />
+            <span className="font-light text-white/45">sem margem para o imprevisto.</span>
           </h2>
-          <p className="text-body-lg text-white/75 mb-10 max-w-2xl mx-auto">
-            Em 30 minutos, mostramos como a Volt Solution pode ser implementada no seu hotel e quanto você pode economizar no primeiro ano.
-          </p>
+        </FadeIn>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto mb-10">
+        <FadeIn delay={0.25}>
+          <p className="text-body-lg text-white/60 max-w-2xl mx-auto mb-14">
+            Em 30 minutos, mostramos como a Volt Solution se encaixa na sua operação
+            e quanto seu hotel pode economizar nos primeiros 12 meses.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.4}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contato"
-              className="bg-blue-brand hover:bg-blue-hover text-white px-8 py-3.5 rounded-md font-semibold transition-colors w-full sm:w-auto"
+              className="bg-bone hover:bg-white text-navy px-8 py-4 rounded-sm font-medium tracking-wide transition-colors text-sm uppercase"
             >
-              Agendar demonstração gratuita →
+              Agendar demonstração
             </Link>
             <a
-              href="https://api.whatsapp.com/send/?phone=5581986996968&text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Volt%20Solution."
+              href={CONTACT.WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-transparent border-[1.5px] border-white/40 hover:border-white hover:bg-white/5 text-white px-8 py-3.5 rounded-md font-semibold transition-colors w-full sm:w-auto"
+              className="bg-transparent border border-bone/30 hover:border-bone text-white px-8 py-4 rounded-sm font-medium transition-colors text-sm uppercase tracking-wide"
             >
               Falar pelo WhatsApp
             </a>
           </div>
+        </FadeIn>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 text-caption text-stone">
+        <FadeIn delay={0.55}>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-14 text-caption text-white/35">
             <span>ISO 9001</span>
-            <span>·</span>
+            <span className="text-white/20">·</span>
             <span>Hardware ANATEL</span>
-            <span>·</span>
+            <span className="text-white/20">·</span>
             <span>Dados em nuvem AWS</span>
+            <span className="text-white/20">·</span>
+            <span>Suporte 24/7</span>
           </div>
         </FadeIn>
       </div>

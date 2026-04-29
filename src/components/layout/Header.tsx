@@ -16,12 +16,9 @@ export default function Header() {
   const isTransparent = isHome && !isScrolled && !isMobileMenuOpen
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    // Check initial scroll position
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -29,65 +26,73 @@ export default function Header() {
   const closeMenu = () => setIsMobileMenuOpen(false)
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 flex items-center',
-        !isTransparent ? 'bg-white shadow-sm' : 'bg-transparent'
-      )}
-    >
-      <div className="container-site flex justify-between items-center w-full">
-        <Link href="/" onClick={closeMenu} className="relative z-50">
-          <div className="relative w-36 h-10">
-            <Image
-              src={!isTransparent ? '/images/logo.svg' : '/images/logo-white.svg'}
-              alt="Volt Solution"
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    'text-sm font-medium transition-colors hover:text-blue-brand',
-                    !isTransparent ? 'text-navy' : 'text-white/90'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/contato"
-            className="bg-blue-brand hover:bg-blue-hover text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-colors"
-          >
-            Agendar Demo →
+    <>
+      <header
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 flex items-center',
+          isTransparent
+            ? 'bg-transparent'
+            : 'bg-white/90 backdrop-blur-md border-b border-border'
+        )}
+      >
+        <div className="container-site flex justify-between items-center w-full">
+          <Link href="/" onClick={closeMenu} className="relative z-50">
+            <div className="relative w-36 h-10">
+              <Image
+                src={isTransparent ? '/images/logo-white.svg' : '/images/logo.svg'}
+                alt="Volt Solution"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
           </Link>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden relative z-50 p-2"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6 text-navy" />
-          ) : (
-            <Menu className={cn('w-6 h-6', !isTransparent ? 'text-navy' : 'text-white')} />
-          )}
-        </button>
-      </div>
+          <nav className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-8">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      'text-sm font-medium transition-colors hover:text-stone',
+                      isTransparent ? 'text-white/80' : 'text-navy'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/contato"
+              className={cn(
+                'px-5 py-2.5 rounded-sm font-medium text-sm tracking-wide uppercase transition-colors',
+                isTransparent
+                  ? 'bg-bone hover:bg-white text-navy'
+                  : 'bg-navy hover:bg-navy-deep text-white'
+              )}
+            >
+              Agendar Demo
+            </Link>
+          </nav>
 
-      {/* Mobile Navigation Drawer */}
+          <button
+            className="md:hidden relative z-50 p-2"
+            onClick={toggleMenu}
+            aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-navy" />
+            ) : (
+              <Menu className={cn('w-6 h-6', isTransparent ? 'text-white' : 'text-navy')} />
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile menu fora do header para não ser contido pelo backdrop-filter */}
       <div
         className={cn(
           'fixed inset-0 bg-white z-40 transition-transform duration-300 md:hidden flex flex-col pt-24 px-6',
@@ -100,7 +105,7 @@ export default function Header() {
               <Link
                 href={link.href}
                 onClick={closeMenu}
-                className="text-2xl font-display font-semibold text-navy hover:text-blue-brand transition-colors"
+                className="text-2xl font-display font-light text-navy hover:text-stone transition-colors"
               >
                 {link.label}
               </Link>
@@ -111,12 +116,12 @@ export default function Header() {
           <Link
             href="/contato"
             onClick={closeMenu}
-            className="block w-full text-center bg-blue-brand text-white py-4 rounded-md font-semibold text-lg"
+            className="block w-full text-center bg-navy hover:bg-navy-deep text-white py-4 rounded-sm font-medium text-sm uppercase tracking-wide transition-colors"
           >
-            Agendar Demo →
+            Agendar Demo
           </Link>
         </div>
       </div>
-    </header>
+    </>
   )
 }

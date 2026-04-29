@@ -1,56 +1,55 @@
 'use client'
-import { motion } from 'framer-motion'
 import { Droplet, Zap, Thermometer, Waves } from 'lucide-react'
-import SectionHeader from '../ui/SectionHeader'
 import FadeIn from '../ui/FadeIn'
 
 const PROBLEMS = [
   {
     icon: Droplet,
-    title: 'Reservatório crítico',
-    description: 'O nível caiu abaixo do mínimo durante um final de semana de alta ocupação. Ninguém recebeu alerta.',
+    title: 'Reservatório crítico no fim de semana cheio.',
+    description: 'O nível caiu abaixo do mínimo na alta ocupação. Ninguém recebeu alerta.',
   },
   {
     icon: Zap,
-    title: 'Pico de consumo invisível',
-    description: 'A conta de energia do mês veio 40% acima. Sem telemetria, ninguém sabia qual equipamento era responsável.',
+    title: 'Pico invisível na fatura do mês.',
+    description: 'A conta veio 40% acima e ninguém soube qual equipamento foi responsável.',
   },
   {
     icon: Thermometer,
-    title: 'Temperatura fora do padrão',
-    description: 'O ar-condicionado de uma ala inteira operou 4 horas fora do range ideal. Hóspedes reclamaram antes da manutenção saber.',
+    title: 'Ala inteira fora da temperatura ideal.',
+    description: 'O ar-condicionado operou 4h fora do range. O hóspede reclamou antes da manutenção saber.',
   },
   {
     icon: Waves,
-    title: 'Vazamento silencioso',
-    description: 'Pequeno vazamento na tubulação de água quente custou R$ 18.000 antes de ser detectado na conta mensal.',
+    title: 'Vazamento silencioso de R$ 18 mil.',
+    description: 'Pequena falha na tubulação de água quente só apareceu na conta mensal.',
   },
 ]
 
 export default function Problems() {
   return (
-    <section className="section-padding bg-off-white" id="problemas">
+    <section className="section-padding" id="problemas" style={{ backgroundColor: 'var(--color-bone)' }}>
       <div className="container-site">
         <FadeIn>
-          <SectionHeader
-            eyebrow="O problema que resolvemos"
-            title="Sua equipe descobre o problema antes ou depois do hóspede?"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
+            <div className="lg:col-span-7">
+              <span className="eyebrow text-stone mb-6 block">Diagnóstico</span>
+              <h2 className="text-h2 text-navy">
+                Sua equipe descobre o problema<br />
+                <span className="font-light text-stone">antes ou depois do hóspede?</span>
+              </h2>
+            </div>
+          </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px rounded-sm overflow-hidden" style={{ backgroundColor: 'var(--color-sand-deep)' }}>
           {PROBLEMS.map((problem, i) => {
             const Icon = problem.icon
             return (
-              <FadeIn key={i} delay={0.1 * i} direction="up">
-                <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-2 border-blue-brand h-full">
-                  <div className="w-12 h-12 rounded-full bg-blue-brand/10 flex items-center justify-center mb-6">
-                    <Icon className="w-6 h-6 text-blue-brand" />
-                  </div>
-                  <h3 className="text-h3 text-navy mb-4">{problem.title}</h3>
-                  <p className="text-body text-stone leading-relaxed">
-                    &ldquo;{problem.description}&rdquo;
-                  </p>
+              <FadeIn key={problem.title} delay={0.06 * i} direction="up">
+                <div className="p-8 md:p-10 h-full" style={{ backgroundColor: 'var(--color-bone)' }}>
+                  <Icon className="w-6 h-6 stroke-[1.75] mb-6" style={{ color: 'color-mix(in oklab, var(--color-stone) 60%, transparent)' }} />
+                  <h3 className="text-h3 text-navy mb-3">{problem.title}</h3>
+                  <p className="text-body text-stone">{problem.description}</p>
                 </div>
               </FadeIn>
             )

@@ -5,17 +5,17 @@ import FadeIn from '../ui/FadeIn'
 
 export default function Clients() {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container-site text-center">
+    <section className="py-16 md:py-20 border-y" style={{ backgroundColor: 'var(--color-bone)', borderColor: 'var(--color-sand-deep)' }}>
+      <div className="container-site">
         <FadeIn>
-          <p className="text-caption text-stone mb-10">
+          <p className="eyebrow text-stone/60 text-center mb-10">
             Confiado pelos principais hotéis e resorts do Brasil
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {CLIENTS.map((client, index) => (
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20">
+            {CLIENTS.map((client) => (
               <div
-                key={index}
-                className="relative h-12 md:h-[70px] brightness-0 opacity-[0.55] hover:brightness-100 hover:opacity-100 transition-all duration-300"
+                key={client.name}
+                className="relative h-10 md:h-12 brightness-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
               >
                 <Image
                   src={client.logo}

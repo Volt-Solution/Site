@@ -1,74 +1,82 @@
 'use client'
 import Image from 'next/image'
 import { CASES } from '@/lib/constants'
-import SectionHeader from '../ui/SectionHeader'
 import FadeIn from '../ui/FadeIn'
-import { AlertTriangle, CheckCircle2 } from 'lucide-react'
 
 export default function Cases() {
   return (
-    <section className="section-padding bg-off-white" id="cases">
+    <section className="section-padding bg-white" id="cases">
       <div className="container-site">
         <FadeIn>
-          <SectionHeader
-            eyebrow="Cases de Sucesso"
-            title="Resultados reais em operações reais"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
+            <div className="lg:col-span-7">
+              <span className="eyebrow text-stone mb-6 block">Casos · Dados</span>
+              <h2 className="text-h2 text-navy">
+                Quem já vê<br />
+                <span className="font-light text-stone">o que antes passava batido.</span>
+              </h2>
+            </div>
+          </div>
         </FadeIn>
 
-        <div className="flex flex-col gap-8 max-w-5xl mx-auto mt-12">
+        <div style={{ borderTop: '1px solid rgba(3,3,66,0.1)' }}>
           {CASES.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.1}>
-              <div className="bg-white rounded-[var(--radius-xl)] shadow-sm overflow-hidden flex flex-col md:flex-row group hover:shadow-md transition-shadow">
-                {/* Image */}
-                <div className="w-full md:w-[40%] h-64 md:h-auto relative bg-navy/5">
-                  <Image
-                    src={item.logo}
-                    alt={`Case ${item.client}`}
-                    fill
-                    className="object-cover"
-                  />
+              <article
+                className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-12 md:py-16 group"
+                style={{ borderBottom: '1px solid rgba(3,3,66,0.1)' }}
+              >
+                {/* Logo / imagem */}
+                <div className="md:col-span-2 lg:col-span-2 flex items-center">
+                  <div className="relative aspect-square w-20 md:w-full rounded-sm overflow-hidden bg-navy/5">
+                    <Image
+                      src={item.logo}
+                      alt={item.client}
+                      fill
+                      sizes="(max-width: 768px) 80px, 15vw"
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="w-full md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-brand mb-6">
-                    {item.client}
+                {/* Texto */}
+                <div className="md:col-span-6 lg:col-span-6 flex flex-col justify-center">
+                  <span className="eyebrow text-stone mb-3 block">{item.client}</span>
+                  <h3 className="text-h3 text-navy mb-3">{item.problem}</h3>
+                  <p className="text-body text-stone">{item.result}</p>
+                </div>
+
+                {/* Métrica protagonista */}
+                <div className="md:col-span-4 lg:col-span-4 flex md:flex-col md:items-end md:justify-center md:text-right gap-3 md:gap-1 items-baseline">
+                  <span
+                    className="text-navy leading-none"
+                    style={{
+                      fontFamily: 'var(--font-vogie-condensed)',
+                      fontWeight: 800,
+                      fontSize: 'clamp(3.5rem, 7vw, 7rem)',
+                      letterSpacing: '-0.03em',
+                      lineHeight: 0.9,
+                    }}
+                  >
+                    {item.metric}
                   </span>
-
-                  <div className="flex flex-col gap-6 mb-8">
-                    <div className="flex gap-3">
-                      <AlertTriangle className="w-5 h-5 text-stone shrink-0 mt-1" />
-                      <p className="text-body text-navy leading-relaxed">
-                        <span className="font-semibold mr-1">Problema:</span>
-                        {item.problem}
-                      </p>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-blue-brand shrink-0 mt-1" />
-                      <p className="text-body text-navy leading-relaxed">
-                        <span className="font-semibold mr-1">Solução:</span>
-                        {item.solution}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-blue-brand/5 rounded-[var(--radius-lg)] p-6 border border-blue-brand/10">
-                    <p className="text-body text-navy mb-3">
-                      <span className="font-semibold mr-1">Resultado:</span>
-                      {item.result}
-                    </p>
-                    <div className="flex items-baseline gap-3 mt-4">
-                      <span className="text-5xl font-display font-bold text-blue-brand leading-none">
-                        {item.metric}
+                  <div className="flex flex-col md:items-end gap-0.5">
+                    <span className="eyebrow text-stone">{item.metricLabel}</span>
+                    {item.metricDetail && (
+                      <span
+                        className="uppercase text-stone/60"
+                        style={{
+                          fontSize: '0.65rem',
+                          letterSpacing: '0.12em',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {item.metricDetail}
                       </span>
-                      <span className="text-caption text-navy/70 uppercase tracking-wide font-medium">
-                        {item.metricLabel}
-                      </span>
-                    </div>
+                    )}
                   </div>
                 </div>
-              </div>
+              </article>
             </FadeIn>
           ))}
         </div>

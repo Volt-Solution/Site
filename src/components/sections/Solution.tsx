@@ -1,77 +1,51 @@
 'use client'
-import { Server, ShieldCheck, Activity } from 'lucide-react'
-import SectionHeader from '../ui/SectionHeader'
+import { MOVES } from '@/lib/constants'
 import FadeIn from '../ui/FadeIn'
-
-const STEPS = [
-  {
-    icon: Server,
-    title: 'Coleta',
-    description: 'Sensores autônomos instalados sem interromper a operação ou a experiência do hóspede. Hardware 100% brasileiro, certificado pela ANATEL, resistente e de baixa manutenção.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Processamento',
-    description: 'Todos os dados são transmitidos e processados em servidores AWS com criptografia ponta a ponta, disponibilidade 99,9% e armazenamento histórico completo.',
-  },
-  {
-    icon: Activity,
-    title: 'Visibilidade',
-    description: 'Dashboard personalizado para sua operação, com alertas configuráveis por WhatsApp, SMS ou email. Sua equipe age antes que o problema impacte o hóspede.',
-  },
-]
 
 export default function Solution() {
   return (
-    <section className="section-padding bg-white overflow-hidden">
+    <section className="section-padding" style={{ backgroundColor: 'var(--color-bone)' }}>
       <div className="container-site">
         <FadeIn>
-          <SectionHeader
-            eyebrow="A Solução"
-            title="Da coleta ao insight em tempo real"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-24">
+            <div className="lg:col-span-5">
+              <span className="eyebrow text-stone mb-6 block">Método · 3 Etapas</span>
+              <h2 className="text-h2 text-navy">
+                Três movimentos.<br />
+                <span className="text-stone font-light">Nenhum deles o hóspede percebe.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+              <p className="text-body-lg text-stone">
+                Da coleta ao insight, cada etapa é projetada para sumir do campo de
+                visão do hóspede e aparecer onde a sua equipe precisa decidir.
+              </p>
+            </div>
+          </div>
         </FadeIn>
 
-        <div className="relative max-w-5xl mx-auto mt-12 md:mt-24">
-          <div className="flex flex-col md:flex-row gap-12 md:gap-4 relative z-10">
-            {STEPS.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <div key={index} className="flex-1 flex flex-col md:items-center relative">
-                  {/* Connector Line (Desktop) */}
-                  {index < STEPS.length - 1 && (
-                    <div className="hidden md:block absolute top-6 left-[50%] w-full h-0.5 bg-blue-brand/20">
-                      <div className="h-full bg-blue-brand w-0" /> {/* Future animation possible here */}
-                    </div>
-                  )}
-                  {/* Connector Line (Mobile) */}
-                  {index < STEPS.length - 1 && (
-                    <div className="md:hidden absolute top-12 left-6 bottom-[-3rem] w-0.5 bg-blue-brand/20" />
-                  )}
-
-                  <FadeIn delay={index * 0.2} className="flex flex-col md:items-center w-full">
-                    <div className="flex items-center md:flex-col gap-6 md:gap-0 w-full relative z-10 bg-white">
-                      <div className="w-12 h-12 shrink-0 rounded-full bg-navy text-white font-display font-bold text-xl flex items-center justify-center md:mb-6 z-10 border-4 border-white shadow-sm">
-                        {index + 1}
-                      </div>
-                      <div className="md:text-center flex-1">
-                        <div className="hidden md:flex justify-center mb-4">
-                          <Icon className="w-8 h-8 text-blue-brand" />
-                        </div>
-                        <h3 className="text-h3 text-navy flex items-center gap-3 md:justify-center mb-3">
-                          <Icon className="w-6 h-6 text-blue-brand md:hidden" />
-                          {step.title}
-                        </h3>
-                        <p className="text-body text-stone md:px-4">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-sand-deep">
+          {MOVES.map((m, i) => (
+            <FadeIn key={m.number} delay={i * 0.1}>
+              <div className="py-10 md:py-14 md:px-8 first:md:pl-0 last:md:pr-0 border-b md:border-b-0 md:border-r last:md:border-r-0 border-sand-deep h-full">
+                {/* Número editorial grande */}
+                <div
+                  className="leading-none mb-6 select-none"
+                  style={{
+                    fontFamily: 'var(--font-vogie-condensed)',
+                    fontWeight: 800,
+                    fontSize: 'clamp(3.5rem, 6vw, 5.5rem)',
+                    letterSpacing: '-0.03em',
+                    color: 'color-mix(in oklab, var(--color-stone) 40%, transparent)',
+                  }}
+                >
+                  {m.number}
                 </div>
-              )
-            })}
-          </div>
+                <h3 className="text-h3 text-navy mb-4">{m.title}</h3>
+                <p className="text-body text-stone">{m.description}</p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

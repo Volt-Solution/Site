@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero'
-import Problems from '@/components/sections/Problems'
 import Solution from '@/components/sections/Solution'
+import MeasureCare from '@/components/sections/MeasureCare'
+import Problems from '@/components/sections/Problems'
 import Services from '@/components/sections/Services'
 import Differentials from '@/components/sections/Differentials'
 import Cases from '@/components/sections/Cases'
@@ -11,8 +12,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Problems />
       <Solution />
+      <MeasureCare />
+      <Problems />
       <Services />
       <Differentials />
       <Cases />
