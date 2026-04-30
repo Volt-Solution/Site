@@ -1,4 +1,17 @@
-import { Droplets, Zap, Thermometer, Fan, Waves, Gauge, Activity, Cpu, Settings2, ShieldCheck, Plug2, BadgeCheck } from 'lucide-react'
+import {
+  Droplets,
+  Zap,
+  Thermometer,
+  Fan,
+  Waves,
+  Gauge,
+  Flame,
+  Cpu,
+  Settings2,
+  ShieldCheck,
+  Plug2,
+  BadgeCheck,
+} from 'lucide-react'
 import type { ElementType } from 'react'
 
 export const iconMap = {
@@ -8,7 +21,7 @@ export const iconMap = {
   wind: Fan,
   waves: Waves,
   gauge: Gauge,
-  lightbulb: Activity,
+  flame: Flame,
   cpu: Cpu,
   'settings-2': Settings2,
   'shield-check': ShieldCheck,

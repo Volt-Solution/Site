@@ -12,7 +12,7 @@ export default function Services() {
         <FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
             <div className="lg:col-span-7">
-              <span className="eyebrow text-bone/55 mb-6 block">Telemetria · 8 Frentes</span>
+              <span className="eyebrow text-bone/55 mb-6 block">Soluções</span>
               <h2 className="text-h2 text-white">
                 Tudo que sustenta a operação,<br />
                 <span className="font-light text-white/45">em uma única visão.</span>
@@ -20,8 +20,8 @@ export default function Services() {
             </div>
             <div className="lg:col-span-4 lg:col-start-9 flex items-end">
               <p className="text-body-lg text-white/55">
-                Oito frentes integradas em um dashboard único. Configure alertas
-                por canal, equipe e prioridade.
+                Diversas frentes integradas em um dashboard único. Uma plataforma
+                flexível que se adapta e expande conforme a necessidade do seu hotel.
               </p>
             </div>
           </div>

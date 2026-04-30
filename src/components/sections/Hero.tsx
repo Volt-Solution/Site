@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FadeIn from '../ui/FadeIn'
-import { CLIENTS } from '@/lib/constants'
+import { CLIENTS, HERO } from '@/lib/constants'
 import { Activity } from 'lucide-react'
 
 const fadeUp = (delay: number) => ({
@@ -69,22 +69,21 @@ export default function Hero() {
             <div className="flex items-center gap-3 border-l-2 border-bone/40 pl-4 mb-9 self-start">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-brand animate-pulse" />
               <span className="text-sm font-medium text-white/75 tracking-wide">
-                Instrumentação para hotelaria de alto padrão
+                {HERO.LABEL}
               </span>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.15}>
             <h1 className="text-editorial text-white mb-9">
-              Telemetria de precisão<br />
-              <span className="font-light text-white/45">para hotéis e resorts<br />de alto padrão.</span>
+              {HERO.TITLE_WHITE}<br />
+              <span className="font-light text-white/45">{HERO.TITLE_GRAY}</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.3}>
             <p className="text-body-lg text-white/65 max-w-xl mb-12">
-              Monitoramos água, energia e clima em tempo real — para que sua
-              equipe aja antes que o problema chegue ao hóspede.
+              {HERO.SUBTEXT}
             </p>
           </FadeIn>
 

@@ -16,24 +16,32 @@ export const NAV_LINKS = [
   { label: 'Sobre', href: '/#sobre' },
 ] as const
 
+export const HERO = {
+  LABEL: 'Telemetria avançada para eficiência operacional',
+  TITLE_WHITE: 'Controle sua operação.',
+  TITLE_GRAY: 'Garanta a máxima experiência do hóspede.',
+  SUBTEXT:
+    'Otimizamos a operação de hotéis e resorts de alto padrão. Com inteligência de dados e sensores IoT sem fio de mínima intervenção, sua engenharia monitora recursos como água, gás e energia nos bastidores.',
+} as const
+
 export const MOVES = [
   {
     number: '01',
     title: 'Coleta silenciosa',
     description:
-      'Sensores nacionais, certificados ANATEL, instalados sem interromper a operação. O hóspede não vê — sua engenharia, sim.',
+      'Sensores autônomos instalados sem interromper a operação. O hóspede não vê — sua engenharia, sim.',
   },
   {
     number: '02',
-    title: 'Inteligência em nuvem',
+    title: 'Inteligência de dados',
     description:
-      'Dados criptografados em AWS com 99,9% de disponibilidade. Histórico completo, leitura em segundos, padrões aprendidos.',
+      'Dados criptografados em nuvem com 99,9% de disponibilidade. Histórico completo, leitura em segundos, padrões aprendidos',
   },
   {
     number: '03',
     title: 'Ação antes do hóspede',
     description:
-      'Alertas no WhatsApp, SMS ou e-mail da equipe certa, na hora certa. O problema vira tarefa — antes de virar reclamação.',
+      'Dashboard personalizado, alertas no WhatsApp, Telegram e mais. O problema vira tarefa antes de virar reclamação.',
   },
 ] as const
 
@@ -77,10 +85,10 @@ export const SERVICES: ServiceItem[] = [
     description: 'Integridade da rede hídrica e sistema de combate a incêndio.',
   },
   {
-    id: 'iluminacao',
-    icon: 'lightbulb',
-    title: 'Iluminação Inteligente',
-    description: 'Controle e eficiência energética nas áreas comuns.',
+    id: 'gas',
+    icon: 'flame',
+    title: 'Consumo de Gás',
+    description: 'Monitoramento e detecção de padrões anômalos de consumo.',
   },
   {
     id: 'automacao',
@@ -137,19 +145,45 @@ export const DIFFERENTIALS: DifferentialItem[] = [
   },
   {
     icon: 'shield-check',
-    title: 'Hardware Nacional Certificado',
+    title: 'Hardware homologados',
     description:
-      'Equipamentos fabricados no Brasil, certificados pela ANATEL. Suporte local, reposição rápida.',
+      'Equipamentos testados e validados. Fornecedores confiáveis e com rápido suporte.',
   },
   {
     icon: 'plug-2',
     title: 'API com Integrações',
     description:
-      'API própria que conecta com sistemas de gestão, Telegram, Slack e ferramentas de BI.',
+      'API própria que conecta com sistemas de gestão, Whatsapp, Telegram e ferramentas de BI.',
   },
   {
     icon: 'badge-check',
     title: 'Certificação ISO 9001',
     description: 'Processos auditados e certificados. Qualidade garantida do projeto ao suporte.',
+  },
+]
+
+export const PROBLEMS = [
+  {
+    icon: 'droplet' as const,
+    title: 'Reservatório abaixo do nível mínimo.',
+    description:
+      'A queda ocorreu durante a alta ocupação. Os hóspedes ficaram sem água nas suítes antes de qualquer alerta chegar à manutenção.',
+  },
+  {
+    icon: 'zap' as const,
+    title: 'Pico invisível na fatura do mês.',
+    description:
+      'A conta veio 40% acima e ninguém soube qual setor foi responsável.',
+  },
+  {
+    icon: 'thermometer' as const,
+    title: 'Câmara fria fora da temperatura ideal.',
+    description:
+      'A perda de temperatura ocorreu durante a madrugada. Insumos premium estragaram antes da engenharia ser alertada.',
+  },
+  {
+    icon: 'waves' as const,
+    title: 'Vazamento silencioso de R$ 18 mil.',
+    description: 'Pequena falha na tubulação de água só apareceu na conta mensal.',
   },
 ]

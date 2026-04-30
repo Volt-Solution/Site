@@ -22,24 +22,23 @@ export default function CTASection() {
           <span className="eyebrow text-bone/55 mb-8 block">Pronto para o próximo passo</span>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="text-editorial text-white max-w-4xl mx-auto mb-10">
-            O padrão da sua casa,<br />
-            <span className="font-light text-white/45">sem margem para o imprevisto.</span>
+          <h2 className="text-display text-white max-w-4xl mx-auto mb-10">
+            Qual é o custo de não saber o que está acontecendo na sua operação?
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.25}>
           <p className="text-body-lg text-white/60 max-w-2xl mx-auto mb-14">
-            Em 30 minutos, mostramos como a Volt Solution se encaixa na sua operação
-            e quanto seu hotel pode economizar nos primeiros 12 meses.
+            Em 30 minutos, mostramos como a Volt Solution pode ser implementada no seu hotel, 
+            mostrando também cases em produção e em tempo real.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.4}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contato"
-              className="bg-bone hover:bg-white text-navy px-8 py-4 rounded-sm font-medium tracking-wide transition-colors text-sm uppercase"
+              className="bg-bone text-navy hover:bg-white px-8 py-4 rounded-sm font-medium transition-colors text-sm uppercase tracking-wide"
             >
               Agendar demonstração
             </Link>
@@ -60,7 +59,7 @@ export default function CTASection() {
             <span className="text-white/20">·</span>
             <span>Hardware ANATEL</span>
             <span className="text-white/20">·</span>
-            <span>Dados em nuvem AWS</span>
+            <span>Dados em nuvem</span>
             <span className="text-white/20">·</span>
             <span>Suporte 24/7</span>
           </div>

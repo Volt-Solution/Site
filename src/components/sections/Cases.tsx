@@ -10,7 +10,7 @@ export default function Cases() {
         <FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
             <div className="lg:col-span-7">
-              <span className="eyebrow text-stone mb-6 block">Casos · Dados</span>
+              <span className="eyebrow text-stone mb-6 block">Cases de Sucesso</span>
               <h2 className="text-h2 text-navy">
                 Quem já vê<br />
                 <span className="font-light text-stone">o que antes passava batido.</span>

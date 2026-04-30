@@ -9,7 +9,7 @@ export default function Solution() {
         <FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-24">
             <div className="lg:col-span-5">
-              <span className="eyebrow text-stone mb-6 block">Método · 3 Etapas</span>
+              <span className="eyebrow text-stone mb-6 block">Método</span>
               <h2 className="text-h2 text-navy">
                 Três movimentos.<br />
                 <span className="text-stone font-light">Nenhum deles o hóspede percebe.</span>

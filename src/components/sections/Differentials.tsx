@@ -21,7 +21,7 @@ export default function Differentials() {
         <FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
             <div className="lg:col-span-6">
-              <span className="eyebrow text-bone/55 mb-6 block">Especificações</span>
+              <span className="eyebrow text-bone/55 mb-6 block">Diferenciais</span>
               <h2 className="text-h2 text-white">
                 Projetado para o padrão<br />
                 <span className="font-light text-white/45">que você entrega.</span>

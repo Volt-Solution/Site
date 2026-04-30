@@ -1,29 +1,7 @@
 'use client'
-import { Droplet, Zap, Thermometer, Waves } from 'lucide-react'
+import { iconMap } from '@/lib/icons'
+import { PROBLEMS } from '@/lib/constants'
 import FadeIn from '../ui/FadeIn'
-
-const PROBLEMS = [
-  {
-    icon: Droplet,
-    title: 'Reservatório crítico no fim de semana cheio.',
-    description: 'O nível caiu abaixo do mínimo na alta ocupação. Ninguém recebeu alerta.',
-  },
-  {
-    icon: Zap,
-    title: 'Pico invisível na fatura do mês.',
-    description: 'A conta veio 40% acima e ninguém soube qual equipamento foi responsável.',
-  },
-  {
-    icon: Thermometer,
-    title: 'Ala inteira fora da temperatura ideal.',
-    description: 'O ar-condicionado operou 4h fora do range. O hóspede reclamou antes da manutenção saber.',
-  },
-  {
-    icon: Waves,
-    title: 'Vazamento silencioso de R$ 18 mil.',
-    description: 'Pequena falha na tubulação de água quente só apareceu na conta mensal.',
-  },
-]
 
 export default function Problems() {
   return (
@@ -43,7 +21,7 @@ export default function Problems() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px rounded-sm overflow-hidden" style={{ backgroundColor: 'var(--color-sand-deep)' }}>
           {PROBLEMS.map((problem, i) => {
-            const Icon = problem.icon
+            const Icon = iconMap[problem.icon]
             return (
               <FadeIn key={problem.title} delay={0.06 * i} direction="up">
                 <div className="p-8 md:p-10 h-full" style={{ backgroundColor: 'var(--color-bone)' }}>
